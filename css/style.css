@@ -1,0 +1,857 @@
+/* -------------------- RESET & BASE -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Txt';
+  src: url('../fonts/txt.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --color1: #5874fc;
+  --color2: #fce158;
+  --bg1: #1d1e24;
+  --txt1: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body, a {
+  font-family: 'Txt', sans-serif;
+  color: var(--txt1);
+}
+
+body {
+  background: linear-gradient(to right, var(--bg1), #19191e);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* -------------------- STRUCTURE GLOBALE -------------------- */
+.block, .section {
+  width: 92.5%;
+  margin: 0 auto;
+}
+
+.block {
+  padding: 20px;
+  border-radius: 35px;
+  background: rgba(57, 57, 63, 0.81);
+  backdrop-filter: blur(9px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  max-width: 1450px;
+  min-height: 100vh;
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 100px;
+}
+
+/* -------------------- NAVIGATION -------------------- */
+.nav, .logoBlock, .btnBlock {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: space-between;
+  max-width: 1450px;
+  z-index: 2000;
+}
+
+.logoBlock {
+  gap: 10px;
+  cursor: pointer;
+}
+
+.logoImg {
+  width: 255px;
+}
+
+.logoTxt {
+  font-size: 1.6em;
+}
+
+.btnBlock {
+  position: relative;
+  gap: 50px;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  font-weight: 550;
+  padding: 10px 13px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  width: max-content;
+  transition: 1.2s;
+}
+
+.btn:hover,
+.menu-dropdown.active .btn.active {
+  background: var(--color1);
+}
+
+.active-capsule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color1);
+  border-radius: 30px;
+  transition: left 0.7s;
+  z-index: -1;
+}
+
+.glow {
+  position: absolute;
+  background: radial-gradient(circle, rgb(255 255 255 / 25%) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 1.2s opacity, 1.2s visibility;
+}
+
+/* -------------------- BURGER MENU -------------------- */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 21px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.burger-line {
+  width: 30px;
+  height: 3px;
+  background: var(--txt1);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.burger-menu-open {
+  display: flex;
+}
+
+.burger-menu-open .burger-line:nth-child(1) {
+  transform: rotate(-45deg) translate(-4px, 5px);
+}
+
+.burger-menu-open .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu-open .burger-line:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* -------------------- MENU DROPDOWN -------------------- */
+.menu-dropdown {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 115px 0 0 4%;
+  gap: 20px;
+  opacity: 0;
+  transition: 1s;
+}
+
+.menu-dropdown.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* -------------------- SECTION ACCUEIL -------------------- */
+#accueil {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: inset 0 -20px 20px 0 #1a1a1f;
+}
+
+.bgBlur {
+  position: absolute;
+  inset: 0;
+  background: url(../images/imgAcceuil.png) center/cover no-repeat fixed;
+  z-index: -1;
+  filter: blur(0px);
+  transition: filter 0.1s ease-out;
+}
+
+.blockTitle {
+  max-width: 1000px;
+  position: relative;
+  top: 20px;
+}
+
+.title:nth-child(1) {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.title:nth-child(2) {
+  font-size: clamp(0.5rem, 8.5vw, 4em);
+  font-weight: 700;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.title:nth-child(2) span {
+  display: inline-block;
+  animation: wave 2s ease-in-out infinite both;
+}
+
+@media (max-width: 1080px) {
+  .blockTitle {
+    max-width: 90%;
+  }
+
+  .title:nth-child(2) {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width: 490px) {
+  .blockTitle {
+    max-width: 95%;
+  }
+
+  .title:nth-child(2) {
+    font-size: clamp(1rem, 10vw, 2.5em);
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    color: var(--txt1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.3);
+    color: var(--color1);
+  }
+}
+
+/* -------------------- SECTIONS GÉNÉRALES -------------------- */
+.titleSec {
+  font-size: 2em;
+  max-width: max-content;
+  padding-left: 8px;
+  border-left: 3px solid var(--color1);
+}
+
+/* -------------------- BLOCS CONTENU -------------------- */
+.blockBox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 40px;
+  flex-wrap: wrap;
+  border-bottom: 10px solid var(--color1);
+  border-right: 10px solid var(--color1);
+  border-radius: 70px;
+  border-top-left-radius: 35px;
+  z-index: 1;
+}
+
+.blockBox.inverse {
+  flex-direction: row-reverse;
+  border: none;
+  border-top: 10px solid var(--color1);
+  border-left: 10px solid var(--color1);
+  border-radius: 70px;
+  border-bottom-right-radius: 35px;
+}
+
+.blockBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(15px) brightness(0.5);
+  z-index: -1;
+  border-radius: 70px;
+  border-top-left-radius: 35px;
+  background-image: var(--bg-img);
+}
+
+.contentBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titleBox {
+  font-size: 4em;
+  margin-bottom: 30px;
+}
+
+.txtBox, .txtService {
+  font-size: 1.3em;
+  z-index: 10;
+  position: relative;
+}
+
+.txtBox {
+  margin-bottom: 20px;
+}
+
+.imgBox {
+  width: 450px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 25px;
+  flex-shrink: 0;
+}
+
+/* -------------------- SERVICES -------------------- */
+.titleService {
+  font-size: 2.3em;
+  margin: 21px 0px;
+  width: max-content;
+  border-bottom: 3px solid var(--color1);
+  z-index: 10;
+  position: relative;
+}
+
+.blockService {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+}
+
+.service {
+  width: 435px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+}
+
+.service .imgBox {
+  aspect-ratio: auto;
+  width: 75%;
+  display: block;
+  margin: 13% auto;
+  z-index: 10;
+  position: relative;
+}
+
+.circle {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: var(--color1);
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 0;
+  transition: 1s transform;
+}
+
+/* -------------------- BLOCS MOBILE -------------------- */
+.iphone {
+  border: 2.9px solid var(--color1);
+  width: 435.6px;
+  height: 892.98px;
+  border-radius: 72.6px;
+  padding: 10.16px;
+  background: #000;
+  position: relative;
+  box-shadow: 0 0 2.9px rgba(255,255,255,0.3);
+}
+
+.screen,
+.iframeMobile {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 58.08px;
+  border: none;
+  position: relative;
+  background-color: black;
+}
+
+.iframeMobile {
+  visibility: hidden;
+  opacity: 0;
+  transition: 1.5s;
+}
+
+.bgScreen {
+  position: absolute;
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+}
+
+.btn-left,
+.btn-left::after,
+.btn-right,
+.btn-vibration {
+  position: absolute;
+  width: 5.8px;
+  border-radius: 5.8px;
+  background: var(--color1);
+  box-shadow: 0 0 2.9px rgba(255, 255, 255, 0.3);
+  z-index: -1;
+}
+
+.btn-left {
+  left: -5.8px;
+  top: 224.6px;
+  height: 58.08px;
+}
+
+.btn-left::after {
+  content: '';
+  top: 72.6px;
+  height: 58.08px;
+}
+
+.btn-right {
+  right: -5.8px;
+  top: 261.36px;
+  height: 87.12px;
+}
+
+.btn-vibration {
+  left: -5.8px;
+  top: 166.98px;
+  height: 33.4px;
+  box-shadow: 0 0 2.9px rgba(255, 255, 255, 0.2);
+}
+
+.blockMobile {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: max-content;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.containerMobile {
+  gap: 170px;
+  justify-content: center;
+}
+
+.btnView {
+  font-size: 3.8em;
+}
+
+.btnSite {
+  font-size: 2em;
+}
+
+/* -------------------- TARIFS -------------------- */
+.tarifsBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  gap: 50px;
+}
+
+.tarifCard {
+  background: rgba(57, 57, 63, 0.85);
+  text-align: center;
+  width: 400px;
+  height: 550px;
+  transition: 1.2s ease;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.tarifCard:nth-child(1) {
+  transform: translateZ(-50px) rotateY(15deg) translate(250px, 20px) scale(0.9);
+}
+
+.tarifCard:nth-child(2) {
+  transform: translateZ(0);
+  z-index: 2;
+}
+
+.tarifCard:nth-child(3) {
+  transform: translateZ(-50px) rotateY(-15deg) translate(-250px, 20px) scale(0.9);
+}
+
+.tarifsBlock:hover .tarifCard {
+  transform: translateZ(0) rotateY(0deg) scale(1);
+}
+
+.titlePrice {
+  text-align: center;
+  margin: 15px auto;
+  font-size: 1.7em;
+}
+
+.apartirde {
+  font-size: 1.5em;
+  color: var(--color1);
+}
+
+.price {
+  font-size: 2.6em;
+  font-weight: 800;
+  color: var(--color1);
+}
+
+.imgPrice {
+  width: 230px;
+}
+
+.buy {
+  background-color: var(--color1);
+  font-size: 1.8em;
+}
+
+.inclus {
+  display: flex;
+  gap: 70px;
+}
+
+.boxInclus {
+  flex: 1;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  height: min-content;
+  margin: 0;
+  width: 100%;
+}
+
+.boxInclus:nth-child(1) {
+  border: 2px solid #2ecc71;
+}
+
+.boxInclus:nth-child(2) {
+  border: 2px solid #e74c3c;
+}
+
+.titleInclus {
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.BlockInclus {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1.2em;
+}
+
+.payment {
+  justify-content: center;
+}
+
+.titlePayment {
+  margin: 21px auto;
+}
+
+.service .imgPayment {
+  margin: 2% auto;
+  width: 50%;
+}
+
+.payment .service {
+  width: 340px;
+}
+
+/* -------------------- CONTACT -------------------- */
+.blockContact {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  align-items: center;
+}
+
+.blockInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+input, textarea, .selection {
+  outline: none;
+  color: var(--txt1);
+  resize: none;
+  font-size: 1.1em;
+  font-family: 'Txt', sans-serif;
+}
+
+.selection {
+  width: 492.5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin: 0;
+}
+
+.inputSubject {
+  width: 492.5px;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.textInput {
+  height: 300px;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.btnContact {
+  background-color: var(--color1);
+  font-size: 1.7em;
+}
+
+.note {
+  font-size: 1em;
+  position: relative;
+  opacity: 0.8;
+  color: var(--color2);
+  bottom: 70px;
+  text-align: center;
+}
+
+/* -------------------- FOOTER -------------------- */
+.footer {
+  max-width: 1450px;
+  margin: 200px auto 30px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.footerBlock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.productionBlock {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footerImg {
+  width: 21px;
+}
+
+/* -------------------- MEDIA QUERIES -------------------- */
+@media (max-width: 1562px) {
+  .blockService {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1080px) {
+  .logoImg {
+    width: 210px;
+  }
+
+  .btn:hover {
+    background: transparent;
+  }
+
+  .buy:hover, .btnContact:hover {
+    background-color: var(--color1);
+  }
+
+  .logoTxt {
+    font-size: 1.25em;
+  }
+
+  .btnBlock {
+    display: none;
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .blockBox {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .section {
+    padding-top: 140px;
+  }
+
+  .block {
+    padding: 20px;
+  }
+
+  .imgBox {
+    width: 100%;
+    aspect-ratio: 2 / 1.3;
+  }
+
+  .titleBox {
+    font-size: 3em;
+  }
+
+  .textBox  {
+    font-size: 1.1em;
+  }
+
+  .blockInput {
+    gap: 70px;
+  }
+
+  .selection, .inputContact {
+    width: 100%;
+  }
+
+  .footer {
+    margin: 140px auto 30px auto;
+  }
+
+  .productionBlock {
+    gap: 20px;
+  }
+
+  .tarifsBlock {
+    flex-wrap: wrap;
+  }
+
+  .inclus {
+    flex-direction: column;
+  }
+
+  .tarifsBlock .tarifCard {
+    transform: translateZ(0) rotateY(0deg) scale(1);
+  }
+}
+
+@media (max-width: 1025px) {
+  .containerMobile {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 490px) {
+  /* Ajustements iPhone / Mobile */
+  .iphone {
+    border: 1.92px solid var(--color1);
+    width: 288px;
+    height: 590.4px;
+    border-radius: 48px;
+    padding: 6.72px;
+    box-shadow: 0 0 1.92px rgba(255,255,255,0.3);
+  }
+
+  .screen,
+  .iframeMobile {
+    border-radius: 38.4px;
+  }
+
+  .btn-left,
+  .btn-left::after,
+  .btn-right,
+  .btn-vibration {
+    width: 3.84px;
+    border-radius: 3.84px;
+    box-shadow: 0 0 1.92px rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-left {
+    left: -3.84px;
+    top: 148.8px;
+    height: 38.4px;
+  }
+
+  .btn-left::after {
+    top: 48px;
+    height: 38.4px;
+  }
+
+  .btn-right {
+    right: -3.84px;
+    top: 172.8px;
+    height: 57.6px;
+  }
+
+  .btn-vibration {
+    left: -3.84px;
+    top: 110.4px;
+    height: 22.08px;
+    box-shadow: 0 0 1.92px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Boutons */
+  .btnView {
+    font-size: 2em;
+  }
+
+  .btnSite {
+    font-size: 1.1em;
+  }
+}
