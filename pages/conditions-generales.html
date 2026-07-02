@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
+  <title>Conditions générales de vente - GNSL Production</title>
+  <meta name="description" content="Conditions générales de vente de GNSL Production — modalités de commande, de paiement, de livraison et droits des parties pour la création de sites web." />
+  <meta name="robots" content="noindex, follow" />
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script defer src="../assets/js/scripts.js"></script>
+
+  <style>
+    .page-hero {
+      min-height: 38vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 140px 20px 64px;
+      position: relative;
+      text-align: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(251,191,36,.10), transparent);
+      pointer-events: none;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .page-hero-title {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+      color: var(--text);
+    }
+    .page-hero-sub {
+      font-size: 1rem;
+      color: var(--text-dim);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .legal-wrapper {
+      width: min(92%, 860px);
+      margin: 0 auto;
+      padding: 0 0 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Bandeau intro */
+    .cgv-intro-banner {
+      background: linear-gradient(135deg, rgba(251,191,36,.10), rgba(251,191,36,.04));
+      border: 1px solid rgba(251,191,36,.30);
+      border-radius: var(--r-lg);
+      padding: 32px 36px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .cgv-intro-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(251,191,36,.15);
+      color: var(--yellow);
+      flex-shrink: 0;
+    }
+    .cgv-intro-icon svg { width: 26px; height: 26px; }
+    .cgv-intro-body { display: flex; flex-direction: column; gap: 8px; }
+    .cgv-intro-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--yellow);
+    }
+    .cgv-intro-text {
+      font-size: .92rem;
+      color: var(--text-dim);
+      line-height: 1.75;
+    }
+    .cgv-intro-text strong { color: var(--text); }
+
+    /* Cards */
+    .legal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: border-color .35s var(--ease);
+    }
+    .legal-card:hover { border-color: var(--blue-20); }
+
+    .legal-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--blue-10);
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+    .legal-card-icon svg { width: 22px; height: 22px; }
+    .legal-card-num {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+    .legal-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .legal-value {
+      font-size: .95rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+    .legal-value strong { color: var(--text); }
+    .legal-value a { color: var(--blue); transition: color .25s; }
+    .legal-value a:hover { color: var(--yellow); }
+
+    .legal-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 8px 20px;
+      align-items: baseline;
+    }
+    .legal-label {
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text-xdim);
+    }
+
+    .legal-note {
+      font-size: .88rem;
+      color: var(--text-dim);
+      line-height: 1.75;
+      padding: 16px 20px;
+      background: rgba(88,116,252,.06);
+      border: 1px solid var(--blue-20);
+      border-radius: var(--r);
+    }
+    .legal-note strong { color: var(--text); }
+
+    /* Grille des offres */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .offer-chip {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px 18px;
+      background: var(--bg-up);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+    }
+    .offer-chip-name {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .offer-chip-price {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--blue);
+    }
+    .offer-chip-price sup { font-size: .6em; font-weight: 600; }
+    .offer-chip-from {
+      font-size: .7rem;
+      color: var(--text-xdim);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* Grille hébergement */
+    .hosting-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .hosting-chip {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 16px 18px;
+      background: var(--bg-up);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+    }
+    .hosting-chip-name {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .hosting-chip-price {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--blue);
+    }
+    .hosting-chip-desc {
+      font-size: .75rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .legal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .tag-yellow {
+      background: rgba(251,191,36,.1);
+      border: 1px solid rgba(251,191,36,.3);
+      color: var(--yellow);
+    }
+    .tag-blue {
+      background: var(--blue-10);
+      border: 1px solid var(--blue-20);
+      color: var(--blue);
+    }
+
+    /* Liste à puces stylisée */
+    .cgv-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cgv-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: .92rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .cgv-list li::before {
+      content: '';
+      display: inline-flex;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .cgv-list li strong { color: var(--text); }
+
+    @media (max-width: 700px) {
+      .legal-card { padding: 24px 20px; }
+      .legal-row { grid-template-columns: 1fr; gap: 4px; }
+      .legal-label { margin-bottom: 2px; }
+      .offers-grid { grid-template-columns: 1fr; }
+      .hosting-grid { grid-template-columns: 1fr; }
+      .cgv-intro-banner { flex-direction: column; gap: 16px; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-brand" id="navBrand">
+      <a href="../index.html">
+        <img src="../assets/images/Logo GNSL Production 2 - FOND NOIR NEUTRE.png" alt="GNSL Production" class="nav-logo" />
+      </a>
+    </div>
+    <div class="nav-links" id="btnBlock">
+      <div class="active-capsule" id="capsule"></div>
+      <a class="btn btnNav" href="../index.html#accueil">Accueil</a>
+      <a class="btn btnNav" href="../index.html#services">Services</a>
+      <a class="btn btnNav" href="../index.html#creations">Créations</a>
+      <a class="btn btnNav" href="../index.html#offres">Offres</a>
+      <a class="btn btnNav" href="../index.html#contact">Contact</a>
+    </div>
+    <button class="burger-menu" aria-label="Menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+  </nav>
+  <div class="menu-dropdown"></div>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <header class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-hero-title">Conditions générales de vente</h1>
+      <p class="page-hero-sub">Modalités applicables à toute commande passée auprès de GNSL Production.</p>
+    </div>
+  </header>
+
+  <!-- ═══ CONTENU ═══ -->
+  <main class="legal-wrapper">
+
+    <!-- Bandeau intro -->
+    <div class="cgv-intro-banner reveal">
+      <div class="cgv-intro-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+      </div>
+      <div class="cgv-intro-body">
+        <p class="cgv-intro-title">Document contractuel</p>
+        <p class="cgv-intro-text">
+          Les présentes Conditions Générales de Vente (CGV) régissent l'ensemble des prestations proposées par <strong>GNSL Production</strong>. Toute commande implique l'acceptation pleine et sans réserve des présentes conditions.
+        </p>
+      </div>
+    </div>
+
+    <!-- Article 1 — Parties -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 01</p>
+          <p class="legal-card-title">Identification des parties</p>
+        </div>
+      </div>
+
+      <div class="legal-row">
+        <span class="legal-label">Prestataire</span>
+        <span class="legal-value"><strong>GNSL Production</strong></span>
+      </div>
+      <div class="legal-row">
+        <span class="legal-label">Localisation</span>
+        <span class="legal-value">Neuchâtel, Suisse</span>
+      </div>
+      <div class="legal-row">
+        <span class="legal-label">Contact</span>
+        <span class="legal-value"><a href="mailto:contact@gnslproduction.ch">contact@gnslproduction.ch</a></span>
+      </div>
+      <div class="legal-row">
+        <span class="legal-label">Client</span>
+        <span class="legal-value">Toute personne physique ou moralee passant commande d'une prestation auprès de GNSL Production.</span>
+      </div>
+    </div>
+
+    <!-- Article 2 — Objet -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 02</p>
+          <p class="legal-card-title">Objet des prestations</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        GNSL Production propose des services de <strong>création de sites web vitrines</strong>, incluant la conception graphique, le développement front-end, l'optimisation SEO et selon l'option de mise en ligne choisie, la mise en ligne et la maintenance. Les prestations couvertes par les présentes CGV comprennent :
+      </p>
+      <ul class="cgv-list">
+        <li>La création de sites web (design, développement, intégration de contenu).</li>
+        <li>L'optimisation pour les moteurs de recherche (SEO) et l'adaptation multi-appareils (responsive).</li>
+        <li>L'accompagnement dans le choix d'un hébergement et d'un nom de domaine.</li>
+        <li>La mise en ligne et la maintenance technique (options payantes, voir article 4).</li>
+      </ul>
+    </div>
+
+    <!-- Article 3 — Devis & Commande -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 03</p>
+          <p class="legal-card-title">Devis et formation du contrat</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        Toute prestation débute par l'établissement d'un <strong>devis gratuit et personnalisé</strong>, transmis au client par e-mail. Ce devis détaille la nature des travaux, les délais estimés et le montant total.
+      </p>
+      <ul class="cgv-list">
+        <li>Le devis est valable 30 jours à compter de sa date d'émission.</li>
+        <li>Le contrat est réputé formé à réception de l'acceptation écrite du devis par le client (réponse par e-mail ou signature du document).</li>
+        <li>Toute modification du périmètre demandée après acceptation du devis fera l'objet d'un avenant chiffré et soumis à validation avant exécution.</li>
+        <li>GNSL Production se réserve le droit de refuser une commande sans avoir à se justifier.</li>
+      </ul>
+    </div>
+
+    <!-- Article 4 — Tarifs -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 04</p>
+          <p class="legal-card-title">Tarifs et offres</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        Les tarifs ci-dessous sont des <strong>points de départ indicatifs</strong>. Le prix définitif est fixé dans le devis personnalisé établi après analyse du projet. Tous les prix sont exprimés en <strong>francs suisses (CHF), TVA non applicable</strong> (GNSL Production est un exploitant individuel non assujetti à la TVA).
+      </p>
+
+      <p class="legal-value" style="font-weight:700; color:var(--text); font-size:.88rem; text-transform:uppercase; letter-spacing:.06em;">Création de site web</p>
+      <div class="offers-grid">
+        <div class="offer-chip">
+          <span class="offer-chip-from">À partir de</span>
+          <span class="offer-chip-price">399 <sup>CHF</sup></span>
+          <span class="offer-chip-name">CV / Portfolio web</span>
+        </div>
+        <div class="offer-chip">
+          <span class="offer-chip-from">À partir de</span>
+          <span class="offer-chip-price">429 <sup>CHF</sup></span>
+          <span class="offer-chip-name">Site One Page</span>
+        </div>
+        <div class="offer-chip">
+          <span class="offer-chip-from">À partir de</span>
+          <span class="offer-chip-price">799 <sup>CHF</sup></span>
+          <span class="offer-chip-name">Site Multi-Pages</span>
+        </div>
+      </div>
+
+      <p class="legal-value" style="font-weight:700; color:var(--text); font-size:.88rem; text-transform:uppercase; letter-spacing:.06em; margin-top:4px;">Options de mise en ligne</p>
+      <div class="hosting-grid">
+        <div class="hosting-chip">
+          <span class="hosting-chip-name">Autonomie</span>
+          <span class="hosting-chip-price">Gratuit</span>
+          <span class="hosting-chip-desc">Livraison des fichiers sources, aide à la mise en ligne.</span>
+        </div>
+        <div class="hosting-chip">
+          <span class="hosting-chip-name">Maintenance</span>
+          <span class="hosting-chip-price">19 CHF / mois</span>
+          <span class="hosting-chip-desc">Configuration serveur & administration. Exclusif Infomaniak.</span>
+        </div>
+        <div class="hosting-chip">
+          <span class="hosting-chip-name">Sérénité</span>
+          <span class="hosting-chip-price">49 CHF / mois</span>
+          <span class="hosting-chip-desc">Tout inclus : hébergement, domaine, modifications illimitées.</span>
+        </div>
+      </div>
+
+      <div class="legal-note">
+        <strong>Offre étudiante :</strong> Les étudiants bénéficient d'une réduction de <strong>−20 %</strong> sur l'ensemble des offres de création. Une preuve du statut étudiant (carte d'étudiant valide ou équivalent) sera demandée lors de la commande.
+      </div>
+    </div>
+
+    <!-- Article 5 — Paiement -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 05</p>
+          <p class="legal-card-title">Modalités de paiement</p>
+        </div>
+      </div>
+
+      <ul class="cgv-list">
+        <li><strong>Acompte de 30 %</strong> du montant total dû à la signature du devis, avant démarrage des travaux.</li>
+        <li><strong>Solde de 70 %</strong> dû à la livraison finale du site, avant toute mise en ligne ou remise des fichiers.</li>
+        <li>Les options de mise en ligne mensuelles (Maintenance, Sérénité) sont facturées mensuellement, à terme échu, à compter de la date d'activation.</li>
+        <li>Les moyens de paiement acceptés sont précisés dans le devis.</li>
+        <li>En cas de retard de paiement supérieur à 15 jours, GNSL Production se réserve le droit de suspendre les travaux ou les services jusqu'à régularisation.</li>
+      </ul>
+    </div>
+
+    <!-- Article 6 — Délais et livraison -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 06</p>
+          <p class="legal-card-title">Délais et livraison</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        Les délais de réalisation sont <strong>estimés dans le devis</strong> et varient selon la complexité du projet. Ils ne débutent qu'à réception de l'acompte et des éléments fournis par le client (textes, images, logo, charte graphique, etc.).
+      </p>
+      <ul class="cgv-list">
+        <li>Le client s'engage à fournir tous les contenus nécessaires dans un délai raisonnable. Tout retard de fourniture par le client reportera d'autant les délais de livraison.</li>
+        <li>La livraison s'effectue par remise des fichiers sources (option Autonomie) ou par mise en ligne sur le serveur convenu (options Maintenance et Sérénité).</li>
+        <li>Après livraison, le client dispose de 7 jours pour formuler des réserves ou demandes de corrections mineures, conformément aux spécifications du devis.</li>
+        <li>À défaut de retour dans ce délai, la livraison est réputée acceptée.</li>
+      </ul>
+    </div>
+
+    <!-- Article 7 — Obligations du client -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 07</p>
+          <p class="legal-card-title">Obligations du client</p>
+        </div>
+      </div>
+
+      <ul class="cgv-list">
+        <li>Fournir des informations exactes et des contenus (textes, images, logos) dont il détient les droits d'utilisation.</li>
+        <li>Collaborer activement en répondant aux demandes de GNSL Production dans des délais raisonnables.</li>
+        <li>S'assurer que les contenus fournis ne violent aucun droit tiers (droit d'auteur, droit à l'image, marques déposées, etc.).</li>
+        <li>Régler les factures dans les délais convenus.</li>
+        <li>Pour les options Maintenance et Sérénité, fournir les accès techniques nécessaires (hébergeur, registrar de domaine) selon les modalités convenues.</li>
+      </ul>
+
+      <div class="legal-note">
+        Le client est seul responsable des contenus qu'il transmet. GNSL Production décline toute responsabilité en cas de litige relatif à des contenus fournis par le client qui violeraient les droits de tiers.
+      </div>
+    </div>
+
+    <!-- Article 8 — Propriété intellectuelle -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 08</p>
+          <p class="legal-card-title">Propriété intellectuelle</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        Jusqu'au paiement intégral du solde, GNSL Production conserve la <strong>pleine propriété intellectuelle</strong> des créations réalisées. Le transfert de propriété intervient uniquement après règlement complet de la facture.
+      </p>
+      <ul class="cgv-list">
+        <li>Après paiement intégral, le client acquiert les droits d'utilisation du site livré pour ses besoins propres.</li>
+        <li>GNSL Production et les développeurs ayant travaillé sur le projet conservent le droit de mentionner le projet dans leurs portfolios et leurs références commerciales..</li>
+        <li>Le code source, les templates et les composants génériques développés par GNSL Production restent la propriété intellectuelle de GNSL Production et ne sont pas exclusivement cédés.</li>
+        <li>Les contenus fournis par le client (textes, images, logo) restent sa propriété exclusive.</li>
+      </ul>
+    </div>
+
+    <!-- Article 9 — Révisions et modifications -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 09</p>
+          <p class="legal-card-title">Révisions et modifications</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        Le devis inclut un nombre de <strong>cycles de révision défini</strong>. Les demandes de modifications substantielles sortant du périmètre initial feront l'objet d'une facturation complémentaire.
+      </p>
+      <ul class="cgv-list">
+        <li>Option Sérénité : les modifications sont illimitées dans le cadre de la maintenance mensuelle, dans la mesure où elles ne constituent pas une refonte complète du site.</li>
+        <li>Options Autonomie et Maintenance : les modifications post-livraison sont facturées au tarif horaire convenu.</li>
+        <li>Toute demande de modification doit être formulée par écrit (e-mail).</li>
+      </ul>
+    </div>
+
+    <!-- Article 10 — Résiliation -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 10</p>
+          <p class="legal-card-title">Résiliation</p>
+        </div>
+      </div>
+
+      <p class="legal-value"><strong>Résiliation par le client :</strong></p>
+      <ul class="cgv-list">
+        <li>En cas d'annulation après acceptation du devis et versement de l'acompte, ce dernier reste acquis à GNSL Production à titre d'indemnité pour le travail déjà engagé.</li>
+        <li>Si des travaux substantiels ont été réalisés, le client devra régler les heures effectuées au prorata.</li>
+        <li>Pour les abonnements mensuels (Maintenance, Sérénité), la résiliation doit être notifiée par écrit avec un préavis d'un mois. Aucun remboursement du mois en cours n'est effectué.</li>
+      </ul>
+
+      <p class="legal-value" style="margin-top:4px;"><strong>Résiliation par GNSL Production :</strong></p>
+      <ul class="cgv-list">
+        <li>GNSL Production peut résilier le contrat en cas de manquement grave du client (non-paiement, fourniture de contenus illicites), avec remboursement du prorata des sommes non consommées le cas échéant.</li>
+      </ul>
+    </div>
+
+    <!-- Article 11 — Responsabilité -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 11</p>
+          <p class="legal-card-title">Limitation de responsabilité</p>
+        </div>
+      </div>
+
+      <ul class="cgv-list">
+        <li>GNSL Production s'engage à réaliser ses prestations avec soin et professionnalisme, mais n'est tenu qu'à une obligation de moyens.</li>
+        <li>GNSL Production ne saurait être tenu responsable des interruptions de service dues à l'hébergeur tiers ou à des causes extérieures (pannes réseau, force majeure).</li>
+        <li>GNSL Production ne garantit pas un positionnement SEO spécifique, les algorithmes des moteurs de recherche étant indépendants de notre contrôle.</li>
+        <li>La responsabilité de GNSL Production est limitée au montant des sommes effectivement perçues au titre de la prestation concernée.</li>
+        <li>GNSL Production n'est pas responsable des contenus fournis par le client ni de leur légalité.</li>
+      </ul>
+    </div>
+
+    <!-- Article 12 — Confidentialité -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 12</p>
+          <p class="legal-card-title">Confidentialité</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        GNSL Production s'engage à garder confidentielles toutes les informations communiquées par le client dans le cadre du projet (données personnelles, informations commerciales, contenus non publiés). Ces informations ne seront en aucun cas transmises à des tiers sans accord préalable du client.
+      </p>
+    </div>
+
+    <!-- Article 13 — Loi applicable -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 13</p>
+          <p class="legal-card-title">Loi applicable et juridiction</p>
+        </div>
+      </div>
+
+      <div class="legal-row">
+        <span class="legal-label">Droit applicable</span>
+        <span class="legal-value"><strong>Droit suisse</strong> (Code des obligations, RS 220)</span>
+      </div>
+      <div class="legal-row">
+        <span class="legal-label">For contractuel</span>
+        <span class="legal-value">Tribunal compétent du canton de <strong>Neuchâtel, Suisse</strong></span>
+      </div>
+
+      <p class="legal-value" style="margin-top:4px;">
+        En cas de litige, les parties s'engagent à rechercher une solution amiable avant toute action judiciaire. À défaut d'accord dans un délai de 30 jours suivant la notification du litige, les tribunaux compétents du canton de Neuchâtel seront seuls compétents.
+      </p>
+    </div>
+
+    <!-- Article 14 — Modification des CGV -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 14</p>
+          <p class="legal-card-title">Modification des présentes CGV</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        GNSL Production se réserve le droit de modifier les présentes CGV à tout moment. Les modifications prennent effet à leur publication sur ce site. Les contrats en cours restent régis par les CGV en vigueur au moment de leur signature. Il appartient au client de consulter régulièrement cette page.
+      </p>
+    </div>
+
+    <!-- Date de mise à jour -->
+    <p style="text-align:center; font-size:.82rem; color:var(--text-xdim); padding-top:8px;">
+      Dernière mise à jour : juillet 2026
+    </p>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <img src="../assets/images/logo.png" alt="Logo GNSL Production" class="footer-logo" />
+        <p class="footer-desc"><strong>GNSL Production</strong> - Agence web spécialisée en développement frontend : sites vitrines modernes, responsives et optimisés SEO pour particuliers, PME et associations.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/gnslproduction" target="_blank" class="footer-social" aria-label="Instagram GNSL Production">
+            <img src="../assets/images/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://github.com/GNSL-Production" target="_blank" class="footer-social" aria-label="GitHub GNSL Production">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Navigation</p>
+        <ul class="footer-links">
+          <li><a href="../index.html#accueil" class="footer-link">Accueil</a></li>
+          <li><a href="../index.html#services" class="footer-link">Services</a></li>
+          <li><a href="../index.html#creations" class="footer-link">Créations</a></li>
+          <li><a href="../index.html#offres" class="footer-link">Offres</a></li>
+          <li><a href="../index.html#contact" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Aide &amp; Support</p>
+        <ul class="footer-links">
+          <li><a href="../index.html#contact" class="footer-link">Nous contacter</a></li>
+          <li><a href="./notre-engagement-ethique.html" class="footer-link">Notre engagement éthique</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Légal</p>
+        <ul class="footer-links">
+          <li><a href="./mentions-legales.html" class="footer-link">Mentions légales</a></li>
+          <li><a href="./politique-de-confidentialite.html" class="footer-link">Politique de confidentialité</a></li>
+          <li><a href="./conditions-generales.html" class="footer-link">Conditions générales</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        <span>© 2026 GNSL Production. Tous droits réservés.</span>
+        <img src="../assets/images/logo.png" alt="" class="footer-logo-sm" />
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
+  <title>Notre engagement éthique - GNSL Production</title>
+  <meta name="description" content="Découvrez pourquoi GNSL Production a choisi Infomaniak comme hébergeur exclusif pour l'option Maintenance : serveurs suisses, engagement écologique et valeurs éthiques." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script defer src="../assets/js/scripts.js"></script>
+
+  <style>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      min-height: 42vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 140px 20px 64px;
+      position: relative;
+      text-align: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(88,116,252,.14), transparent);
+      pointer-events: none;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .page-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--blue-10);
+      border: 1px solid var(--blue-20);
+      border-radius: 999px;
+      padding: 6px 16px;
+    }
+    .page-hero-badge svg { width: 14px; height: 14px; }
+    .page-hero-title {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+      color: var(--text);
+    }
+    .page-hero-sub {
+      font-size: 1rem;
+      color: var(--text-dim);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ── WRAPPER ── */
+    .info-wrapper {
+      width: min(92%, 860px);
+      margin: 0 auto;
+      padding: 0 0 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── CARDS ── */
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: border-color .35s var(--ease);
+    }
+    .info-card:hover { border-color: var(--blue-20); }
+
+    .info-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .info-card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--blue-10);
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+    .info-card-icon svg { width: 24px; height: 24px; }
+    .info-card-num {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+    .info-card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .info-text {
+      font-size: .95rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+    .info-text strong { color: var(--text); }
+    .info-text a { color: var(--blue); transition: color .25s; }
+    .info-text a:hover { color: var(--yellow); }
+
+    /* ── PILL LIST ── */
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .pill-list li {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .83rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 14px;
+    }
+    .pill-list li::before {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: rgba(88,116,252,.07);
+      border: 1px solid var(--blue-20);
+      border-radius: var(--r);
+      padding: 20px 24px;
+      font-size: .92rem;
+      color: var(--text-dim);
+      line-height: 1.75;
+    }
+    .highlight-box strong { color: var(--text); }
+
+    /* ── INFOMANIAK LOGO BLOCK ── */
+    .ik-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 32px 24px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      text-align: center;
+    }
+    .ik-logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+    }
+    .ik-logo-img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .ik-logo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: #0A7AFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .ik-logo-icon svg { width: 26px; height: 26px; }
+    .ik-wordmark {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      color: #0A7AFF;
+    }
+    .ik-brand-caption {
+      font-size: .82rem;
+      color: var(--text-xdim);
+      max-width: 400px;
+      line-height: 1.6;
+    }
+
+    /* ── CTA CARD ── */
+    .cta-card {
+      background: linear-gradient(135deg, rgba(88,116,252,.1), rgba(88,116,252,.04));
+      border: 1px solid var(--blue-20);
+      border-radius: var(--r-lg);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+    .cta-card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .cta-card-sub {
+      font-size: .95rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+    .cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .cta-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue);
+      color: #fff;
+      font-size: .9rem;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: opacity .25s;
+    }
+    .cta-btn-primary:hover { opacity: .85; }
+    .cta-btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text-dim);
+      font-size: .9rem;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color .25s, color .25s;
+    }
+    .cta-btn-ghost:hover { border-color: var(--blue-20); color: var(--text); }
+
+    /* ── CARD SECTION HEADING ── */
+    .card-heading {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -.025em;
+      color: var(--text);
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .info-card { padding: 24px 20px; }
+      .cta-card { padding: 28px 20px; }
+      .ik-brand { padding: 24px 16px; }
+      .ik-logo-img { max-width: 150px; }
+      .ik-brand-caption { font-size: .78rem; max-width: 100%; }
+      .card-heading { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-brand" id="navBrand">
+      <a href="../index.html">
+        <img src="../assets/images/Logo GNSL Production 2 - FOND NOIR NEUTRE.png" alt="GNSL Production" class="nav-logo" />
+      </a>
+    </div>
+    <div class="nav-links" id="btnBlock">
+      <div class="active-capsule" id="capsule"></div>
+      <a class="btn btnNav" href="../index.html#accueil">Accueil</a>
+      <a class="btn btnNav" href="../index.html#services">Services</a>
+      <a class="btn btnNav" href="../index.html#creations">Créations</a>
+      <a class="btn btnNav" href="../index.html#offres">Offres</a>
+      <a class="btn btnNav" href="../index.html#contact">Contact</a>
+    </div>
+    <button class="burger-menu" aria-label="Menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+  </nav>
+  <div class="menu-dropdown"></div>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <header class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-hero-title">Notre engagement éthique</h1>
+      <p class="page-hero-sub">L'option <strong>Maintenance</strong> est disponible exclusivement chez Infomaniak. Ce choix reflète nos valeurs : protection des données, engagement écologique et indépendance numérique.</p>
+    </div>
+  </header>
+
+  <!-- ═══ CONTENU ═══ -->
+  <main class="info-wrapper">
+
+    <!-- Pourquoi Infomaniak : toutes les raisons -->
+    <div class="info-card reveal">
+      <h2 class="card-heading">Pourquoi Infomaniak ?</h2>
+
+      <!-- Raison 01 : Serveurs en Suisse -->
+      <div class="info-card-header">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="info-card-num">Raison 01</p>
+          <p class="info-card-title">Des serveurs 100% en Suisse</p>
+        </div>
+      </div>
+      <p class="info-text">
+        Infomaniak possède et exploite ses propres <strong>datacenters situés en Suisse</strong> — à Genève et dans le Canton de Fribourg. Vos données ne transitent jamais à l'étranger et restent soumises au droit suisse, reconnu mondialement pour sa rigueur en matière de protection des données personnelles.
+      </p>
+      <p class="info-text">
+        Contrairement aux géants américains (AWS, Google Cloud, Azure), Infomaniak n'est pas soumis au <strong>CLOUD Act</strong> américain, qui permet aux autorités américaines d'accéder aux données hébergées par des entreprises américaines, même situées en dehors des États-Unis. Avec Infomaniak, vos données restent juridiquement hors de portée de toute législation étrangère.
+      </p>
+      <ul class="pill-list">
+        <li>Datacenters à Genève &amp; Fribourg</li>
+        <li>Droit suisse (LPD) applicable</li>
+        <li>Aucun Cloud Act américain</li>
+        <li>Infrastructure 100% propriétaire</li>
+        <li>Aucun transfert de données hors Suisse</li>
+      </ul>
+
+      <!-- Raison 02 : Engagement écologique -->
+      <div class="info-card-header">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22C6 16 2 11 2 7a10 10 0 0120 0c0 4-4 9-10 15z"/><circle cx="12" cy="7" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <p class="info-card-num">Raison 02</p>
+          <p class="info-card-title">Un engagement écologique concret</p>
+        </div>
+      </div>
+      <p class="info-text">
+        Infomaniak est l'un des rares hébergeurs à publier un <strong>bilan carbone annuel complet</strong> et à s'imposer des objectifs de réduction mesurables. Leurs datacenters fonctionnent à <strong>100% d'énergies renouvelables</strong> certifiées, majoritairement issues de l'hydraulique suisse.
+      </p>
+      <p class="info-text">
+        Ils optimisent en permanence leur PUE (Power Usage Effectiveness — efficacité énergétique de leurs centres de données), récupèrent la chaleur résiduelle des serveurs pour chauffer des bâtiments, et ont signé la <strong>Charte Climatique des entreprises suisses</strong>. Héberger votre site chez eux, c'est choisir un numérique moins polluant.
+      </p>
+      <ul class="pill-list">
+        <li>100% énergie renouvelable certifiée</li>
+        <li>Bilan carbone publié chaque année</li>
+        <li>Récupération de chaleur résiduelle</li>
+        <li>Charte Climatique signataire</li>
+        <li>Optimisation continue du PUE</li>
+      </ul>
+
+      <!-- Raison 03 : Entreprise indépendante -->
+      <div class="info-card-header">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div>
+          <p class="info-card-num">Raison 03</p>
+          <p class="info-card-title">Une entreprise indépendante et éthique</p>
+        </div>
+      </div>
+      <p class="info-text">
+        Fondée en 1994 à Genève, Infomaniak est une <strong>entreprise suisse 100% indépendante</strong>. Elle n'appartient à aucun fonds d'investissement étranger et n'a jamais cédé de parts à des acteurs extérieurs. Ses actionnaires sont ses propres employés — ce modèle garantit une gouvernance alignée sur des valeurs humaines, pas sur des rendements financiers à court terme.
+      </p>
+      <p class="info-text">
+        Contrairement à des hébergeurs rachetés et revendus au fil des acquisitions, Infomaniak publie ses <strong>comptes financiers de façon transparente</strong> et défend activement la <strong>souveraineté numérique européenne</strong>, en refusant notamment d'utiliser des technologies dont les données appartiendraient à des tiers.
+      </p>
+      <ul class="pill-list">
+        <li>Aucun investisseur extérieur</li>
+        <li>Actionnariat 100% employés</li>
+        <li>Entreprise suisse fondée en 1994</li>
+        <li>Comptes financiers publics</li>
+        <li>Souveraineté numérique défendue</li>
+        <li>Aucune revente à des tiers</li>
+      </ul>
+
+      <!-- Raison 04 : Protection des données -->
+      <div class="info-card-header">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="info-card-num">Raison 04</p>
+          <p class="info-card-title">La protection des données de vos visiteurs</p>
+        </div>
+      </div>
+      <p class="info-text">
+        Lorsque vos visiteurs naviguent sur votre site, des données sont inévitablement traitées (adresses IP, formulaires, etc.). En hébergeant votre site chez Infomaniak, ces données sont traitées <strong>exclusivement en Suisse, sous la loi fédérale sur la protection des données (LPD)</strong>, révisée en 2023 et considérée comme l'une des plus protectrices au monde.
+      </p>
+      <p class="info-text">
+        Infomaniak s'engage également à <strong>ne jamais commercialiser les données</strong> de ses clients ou de leurs visiteurs. Votre site ne participe pas à l'économie de la surveillance numérique.
+      </p>
+      <div class="highlight-box">
+        <strong>En clair :</strong> ni vous ni vos visiteurs n'êtes le produit. Vos données restent vos données — hébergées chez un acteur qui en fait un principe fondateur, pas juste une case à cocher dans ses conditions générales.
+      </div>
+    </div>
+
+    <!-- Notre engagement -->
+    <div class="info-card reveal">
+      <div class="info-card-header">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div>
+          <p class="info-card-num">Notre position</p>
+          <p class="info-card-title">Pourquoi ce choix nous tient à cœur</p>
+        </div>
+      </div>
+      <p class="info-text">
+        Chez GNSL Production, nous créons des sites web — mais pas seulement. Nous pensons que chaque décision technique a des conséquences réelles : sur l'environnement, sur la confidentialité des personnes, sur l'économie locale. <strong>Le choix de l'hébergeur en fait partie.</strong>
+      </p>
+      <p class="info-text">
+        Proposer un service de Maintenance implique que nous gérons directement votre hébergement. Nous avons fait le choix de ne le faire que chez un prestataire dont nous cautionnons pleinement les pratiques. <strong>Infomaniak correspond à ces exigences.</strong>
+      </p>
+      <p class="info-text">
+        Si vous préférez un autre hébergeur, l'option <strong>Autonomie</strong> (incluse dans le prix de votre site) vous permet d'héberger où vous le souhaitez.
+      </p>
+    </div>
+
+    <p style="text-align:center; font-size:.82rem; color:var(--text-xdim); padding-top:8px;">
+      Sources : <a href="https://www.infomaniak.com/fr/hebergeur-ecologique" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">infomaniak.com/hebergeur-ecologique</a>
+    </p>
+
+    <!-- CTA -->
+    <div class="cta-card reveal">
+      <p class="cta-card-title">Alors ? Un projet en tête ?</p>
+      <div class="cta-btns">
+        <a href="../index.html#offres" class="cta-btn-primary">Retours aux offres →</a>
+        <a href="../index.html#contact" class="cta-btn-ghost">Nous contacter</a>
+      </div>
+    </div>
+
+    <p style="text-align:center; font-size:.82rem; color:var(--text-xdim); padding-top:8px;">
+      Dernière mise à jour : juillet 2026</a>
+    </p>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <img src="../assets/images/logo.png" alt="Logo GNSL Production" class="footer-logo" />
+        <p class="footer-desc"><strong>GNSL Production</strong> - Agence web spécialisée en développement frontend : sites vitrines modernes, responsives et optimisés SEO pour particuliers, PME et associations.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/gnslproduction" target="_blank" class="footer-social" aria-label="Instagram GNSL Production">
+            <img src="../assets/images/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://github.com/GNSL-Production" target="_blank" class="footer-social" aria-label="GitHub GNSL Production">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Navigation</p>
+        <ul class="footer-links">
+          <li><a href="../index.html#accueil" class="footer-link">Accueil</a></li>
+          <li><a href="../index.html#services" class="footer-link">Services</a></li>
+          <li><a href="../index.html#creations" class="footer-link">Créations</a></li>
+          <li><a href="../index.html#offres" class="footer-link">Offres</a></li>
+          <li><a href="../index.html#contact" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Aide &amp; Support</p>
+        <ul class="footer-links">
+          <li><a href="../index.html#contact" class="footer-link">Nous contacter</a></li>
+          <li><a href="./notre-engagement-ethique.html" class="footer-link">Notre engagement éthique</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Légal</p>
+        <ul class="footer-links">
+          <li><a href="./mentions-legales.html" class="footer-link">Mentions légales</a></li>
+          <li><a href="./politique-de-confidentialite.html" class="footer-link">Politique de confidentialité</a></li>
+          <li><a href="./conditions-generales.html" class="footer-link">Conditions générales</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        <span>© 2026 GNSL Production. Tous droits réservés.</span>
+        <img src="../assets/images/logo.png" alt="" class="footer-logo-sm" />
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
+  <title>Politique de confidentialité - GNSL Production</title>
+  <meta name="description" content="Politique de confidentialité de GNSL Production — traitement des données personnelles, cookies et droits des utilisateurs." />
+  <meta name="robots" content="noindex, follow" />
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script defer src="../assets/js/scripts.js"></script>
+
+  <style>
+    .page-hero {
+      min-height: 38vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 140px 20px 64px;
+      position: relative;
+      text-align: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(52,211,153,.1), transparent);
+      pointer-events: none;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .page-hero-title {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+      color: var(--text);
+    }
+    .page-hero-sub {
+      font-size: 1rem;
+      color: var(--text-dim);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .hero-eyebrow-green .hero-dot {
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+    }
+
+    .legal-wrapper {
+      width: min(92%, 860px);
+      margin: 0 auto;
+      padding: 0 0 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Zero-data banner */
+    .zero-data-banner {
+      background: linear-gradient(135deg, rgba(52,211,153,.1), rgba(52,211,153,.04));
+      border: 1px solid rgba(52,211,153,.35);
+      border-radius: var(--r-lg);
+      padding: 32px 36px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .zero-data-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(52,211,153,.15);
+      color: var(--green);
+      flex-shrink: 0;
+    }
+    .zero-data-icon svg { width: 26px; height: 26px; }
+    .zero-data-body { display: flex; flex-direction: column; gap: 8px; }
+    .zero-data-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .zero-data-text {
+      font-size: .95rem;
+      color: var(--text-dim);
+      line-height: 1.75;
+    }
+    .zero-data-text strong { color: var(--text); }
+
+    .legal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: border-color .35s var(--ease);
+    }
+    .legal-card:hover { border-color: var(--blue-20); }
+
+    .legal-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--blue-10);
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+    .legal-card-icon svg { width: 22px; height: 22px; }
+    .legal-card-num {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+    .legal-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .legal-value {
+      font-size: .95rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+    .legal-value strong { color: var(--text); }
+    .legal-value a { color: var(--blue); transition: color .25s; }
+    .legal-value a:hover { color: var(--yellow); }
+
+    .legal-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 8px 20px;
+      align-items: baseline;
+    }
+    .legal-label {
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text-xdim);
+    }
+
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .right-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px 18px;
+      background: var(--bg-up);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+    }
+    .right-item-title {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .right-item-desc {
+      font-size: .82rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .legal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .tag-green {
+      background: rgba(52,211,153,.1);
+      border: 1px solid rgba(52,211,153,.3);
+      color: var(--green);
+    }
+
+    @media (max-width: 600px) {
+      .legal-card { padding: 24px 20px; }
+      .legal-row { grid-template-columns: 1fr; gap: 4px; }
+      .legal-label { margin-bottom: 2px; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .zero-data-banner { flex-direction: column; gap: 16px; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-brand" id="navBrand">
+      <a href="../index.html">
+        <img src="../assets/images/Logo GNSL Production 2 - FOND NOIR NEUTRE.png" alt="GNSL Production" class="nav-logo" />
+      </a>
+    </div>
+    <div class="nav-links" id="btnBlock">
+      <div class="active-capsule" id="capsule"></div>
+      <a class="btn btnNav" href="../index.html#accueil">Accueil</a>
+      <a class="btn btnNav" href="../index.html#services">Services</a>
+      <a class="btn btnNav" href="../index.html#creations">Créations</a>
+      <a class="btn btnNav" href="../index.html#offres">Offres</a>
+      <a class="btn btnNav" href="../index.html#contact">Contact</a>
+    </div>
+    <button class="burger-menu" aria-label="Menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+  </nav>
+  <div class="menu-dropdown"></div>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <header class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-hero-title">Politique de confidentialité</h1>
+      <p class="page-hero-sub">Comment gnslproduction.ch traite vos données conformément au RGPD.</p>
+    </div>
+  </header>
+
+  <!-- ═══ CONTENU ═══ -->
+  <main class="legal-wrapper">
+
+    <!-- Bannière zéro donnée -->
+    <div class="zero-data-banner reveal">
+      <div class="zero-data-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="zero-data-body">
+        <p class="zero-data-title">Ce site ne collecte strictement aucune donnée personnelle</p>
+        <p class="zero-data-text">
+          gnslproduction.ch est un site vitrine statique. <strong>Aucune donnée personnelle n'est collectée, stockée ou traitée</strong> par nos soins, ni via des formulaires côté serveur, ni via des outils d'analyse ou de tracking. Le formulaire de contact présent sur le site ouvre simplement votre application de messagerie locale et n'envoie aucune information à nos serveurs.
+        </p>
+      </div>
+    </div>
+
+    <!-- Article 1 — Responsable du traitement -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 01</p>
+          <p class="legal-card-title">Responsable du traitement</p>
+        </div>
+      </div>
+
+      <div class="legal-row">
+        <span class="legal-label">Responsable</span>
+        <span class="legal-value"><strong>Arnaud Gensollen</strong> - GNSL Production</span>
+      </div>
+      <div class="legal-row">
+        <span class="legal-label">Contact</span>
+        <span class="legal-value"><a href="mailto:arnaud.gensollen@gnslproduction.ch">arnaud.gensollen@gnslproduction.ch</a></span>
+      </div>
+      <div class="legal-row">
+        <span class="legal-label">DPO</span>
+        <span class="legal-value">Aucun délégué à la protection des données (DPO) n'est désigné. Aucune donnée n'étant traitée, cette obligation ne s'applique pas.</span>
+      </div>
+    </div>
+
+    <!-- Article 2 — Données collectées -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 02</p>
+          <p class="legal-card-title">Données collectées</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        <strong>Aucune donnée personnelle n'est collectée</strong> par ce site, notamment :
+      </p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; padding:0;">
+        <li style="display:flex; align-items:flex-start; gap:12px; font-size:.92rem; color:var(--text-dim); line-height:1.6;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:rgba(248,113,113,.1); border:1.5px solid var(--red); flex-shrink:0; margin-top:2px;"></span>
+          Aucune donnée saisie dans le formulaire de contact n'est transmise à un serveur. Ce formulaire génère un lien "mailto" qui ouvre votre application de messagerie locale.
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:12px; font-size:.92rem; color:var(--text-dim); line-height:1.6;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:rgba(248,113,113,.1); border:1.5px solid var(--red); flex-shrink:0; margin-top:2px;"></span>
+          Aucune adresse IP ni données de navigation ne sont enregistrées par nos soins.
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:12px; font-size:.92rem; color:var(--text-dim); line-height:1.6;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:rgba(248,113,113,.1); border:1.5px solid var(--red); flex-shrink:0; margin-top:2px;"></span>
+          Aucun outil d'analyse ou de mesure d'audience (Google Analytics, Matomo, etc.) n'est intégré au site.
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:12px; font-size:.92rem; color:var(--text-dim); line-height:1.6;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:rgba(248,113,113,.1); border:1.5px solid var(--red); flex-shrink:0; margin-top:2px;"></span>
+          Aucun pixel de suivi publicitaire ni outil de remarketing n'est présent.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Article 3 — Finalité & base légale -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 03</p>
+          <p class="legal-card-title">Finalité du traitement &amp; base légale</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        En l'absence de toute collecte de données, <strong>aucun traitement de données personnelles n'est réalisé</strong> et aucune base légale au sens de l'article 6 du RGPD ne s'applique. Les seules interactions avec des données personnelles surviennent lorsque vous choisissez volontairement de nous contacter directement par e-mail, auquel cas ce traitement relève de votre seule initiative et est régi par votre propre gestionnaire de messagerie.
+      </p>
+    </div>
+
+    <!-- Article 4 — Destinataires -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 04</p>
+          <p class="legal-card-title">Destinataires des données</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        <strong>Aucune donnée n'est partagée avec des tiers.</strong> Ce site ne recourt à aucun service tiers susceptible de recevoir vos informations personnelles : ni réseaux publicitaires, ni outils d'analyse, ni services de paiement en ligne intégrés, ni sous-traitants de traitement de données.
+      </p>
+      <p class="legal-value">
+        Le seul contenu tiers intégré est un aperçu iframe du site <em>solunaevent.ch</em> dans la section créations. Cet affichage peut techniquement générer une connexion réseau de votre navigateur vers ce site tiers, sans que GNSL Production n'en contrôle ou n'en reçoive les données.
+      </p>
+    </div>
+
+    <!-- Article 5 — Durée de conservation -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 05</p>
+          <p class="legal-card-title">Durée de conservation</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        <strong>Aucune durée de conservation ne s'applique</strong>, aucune donnée personnelle n'étant collectée ni stockée sur nos serveurs. Les échanges e-mail initiés volontairement par les utilisateurs sont conservés dans leur propre messagerie et dans la boîte de réception de GNSL Production selon les pratiques habituelles de correspondance, sans traitement automatisé.
+      </p>
+    </div>
+
+    <!-- Article 6 — Droits des utilisateurs -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 06</p>
+          <p class="legal-card-title">Droits des utilisateurs</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        Conformément au RGPD (articles 15 à 22), vous disposez des droits suivants sur vos données personnelles. En l'absence de toute collecte par nos soins, ces droits s'exercent de manière triviale. Il n'existe aucune donnée vous concernant dans nos systèmes.
+      </p>
+
+      <div class="rights-grid">
+        <div class="right-item">
+          <p class="right-item-title">Droit d'accès</p>
+          <p class="right-item-desc">Connaître les données que nous détenons sur vous.</p>
+        </div>
+        <div class="right-item">
+          <p class="right-item-title">Droit de rectification</p>
+          <p class="right-item-desc">Corriger des données inexactes vous concernant.</p>
+        </div>
+        <div class="right-item">
+          <p class="right-item-title">Droit à l'effacement</p>
+          <p class="right-item-desc">Obtenir la suppression de vos données (droit à l'oubli).</p>
+        </div>
+        <div class="right-item">
+          <p class="right-item-title">Droit d'opposition</p>
+          <p class="right-item-desc">Vous opposer à un traitement vous concernant.</p>
+        </div>
+        <div class="right-item">
+          <p class="right-item-title">Droit à la portabilité</p>
+          <p class="right-item-desc">Récupérer vos données dans un format structuré.</p>
+        </div>
+        <div class="right-item">
+          <p class="right-item-title">Droit à la limitation</p>
+          <p class="right-item-desc">Limiter temporairement l'utilisation de vos données.</p>
+        </div>
+      </div>
+
+      <p class="legal-value" style="margin-top:4px;">
+        Pour exercer l'un de ces droits ou pour toute question relative à la protection de vos données, contactez-nous à l'adresse: <a href="mailto:contact@gnslproduction.ch">contact@gnslproduction.ch</a>. Vous disposez également du droit d'introduire une réclamation auprès d'une autorité de contrôle compétente (en Suisse : le <strong>Préposé fédéral à la protection des données et à la transparence - PFPDT</strong>).
+      </p>
+    </div>
+
+    <!-- Article 7 — Cookies -->
+    <div class="legal-card reveal">
+      <div class="legal-card-header">
+        <div class="legal-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <div>
+          <p class="legal-card-num">Article 07</p>
+          <p class="legal-card-title">Gestion des cookies &amp; traceurs</p>
+        </div>
+      </div>
+
+      <p class="legal-value">
+        <strong>Ce site n'utilise aucun cookie.</strong> Aucun traceur, pixel ou mécanisme de stockage local (localStorage, sessionStorage, cookies) n'est déposé sur votre navigateur lors de votre visite sur gnslproduction.ch.
+      </p>
+      <p class="legal-value">
+        En conséquence, aucune bannière de consentement aux cookies n'est requise. Votre navigation reste entièrement anonyme et sans empreinte technologique de notre part.
+      </p>
+
+      <div class="legal-row" style="margin-top:4px;">
+        <span class="legal-label">Cookies analytiques</span>
+        <span class="legal-value"><span class="legal-tag tag-green">Aucun</span></span>
+      </div>
+      <div class="legal-row">
+        <span class="legal-label">Cookies publicitaires</span>
+        <span class="legal-value"><span class="legal-tag tag-green">Aucun</span></span>
+      </div>
+      <div class="legal-row">
+        <span class="legal-label">Cookies fonctionnels</span>
+        <span class="legal-value"><span class="legal-tag tag-green">Aucun</span></span>
+      </div>
+      <div class="legal-row">
+        <span class="legal-label">Stockage local</span>
+        <span class="legal-value"><span class="legal-tag tag-green">Aucun</span></span>
+      </div>
+    </div>
+
+    <!-- Date de mise à jour -->
+    <p style="text-align:center; font-size:.82rem; color:var(--text-xdim); padding-top:8px;">
+      Dernière mise à jour : juillet 2026
+    </p>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <img src="../assets/images/logo.png" alt="Logo GNSL Production" class="footer-logo" />
+        <p class="footer-desc"><strong>GNSL Production</strong> - Agence web spécialisée en développement frontend : sites vitrines modernes, responsives et optimisés SEO pour particuliers, PME et associations.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/gnslproduction" target="_blank" class="footer-social" aria-label="Instagram GNSL Production">
+            <img src="../assets/images/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://github.com/GNSL-Production" target="_blank" class="footer-social" aria-label="GitHub GNSL Production">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Navigation</p>
+        <ul class="footer-links">
+          <li><a href="../index.html#accueil" class="footer-link">Accueil</a></li>
+          <li><a href="../index.html#services" class="footer-link">Services</a></li>
+          <li><a href="../index.html#creations" class="footer-link">Créations</a></li>
+          <li><a href="../index.html#offres" class="footer-link">Offres</a></li>
+          <li><a href="../index.html#contact" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Aide &amp; Support</p>
+        <ul class="footer-links">
+          <li><a href="../index.html#contact" class="footer-link">Nous contacter</a></li>
+          <li><a href="./notre-engagement-ethique.html" class="footer-link">Notre engagement éthique</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Légal</p>
+        <ul class="footer-links">
+          <li><a href="./mentions-legales.html" class="footer-link">Mentions légales</a></li>
+          <li><a href="./politique-de-confidentialite.html" class="footer-link">Politique de confidentialité</a></li>
+          <li><a href="./conditions-generales.html" class="footer-link">Conditions générales</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        <span>© 2026 GNSL Production. Tous droits réservés.</span>
+        <img src="../assets/images/logo.png" alt="" class="footer-logo-sm" />
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
